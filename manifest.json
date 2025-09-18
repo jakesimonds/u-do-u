@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "u-do-u",
+  "version": "1.0",
+  "description": "Simple extension that asks 'whatcha doing?' on startup",
+  "permissions": [
+    "storage"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "u-do-u"
+  }
+}
