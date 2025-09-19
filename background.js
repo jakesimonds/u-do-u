@@ -13,13 +13,10 @@ function showWhatchaDoingModal() {
   chrome.windows.create({
     url: chrome.runtime.getURL('modal.html'),
     type: 'popup',
-    width: 400,
-    height: 200,
-    focused: true
+    width: 800,
+    height: 800,
+    //focused: true
   });
 }
 
-// Clear storage when Chrome is closing (best effort)
-chrome.runtime.onSuspend.addListener(() => {
-  chrome.storage.local.clear();
-});
+// Removed auto-clear - we want to keep activities for export

@@ -29,6 +29,18 @@
             color: #999;
             font-style: italic;
         }
+        button {
+            background-color: #ff4444;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        button:hover {
+            background-color: #cc3333;
+        }
     </style>
 </head>
 <body>
@@ -37,6 +49,7 @@
         <div class="activity" id="activityDisplay">
             <span class="no-activity">Nothing set yet...</span>
         </div>
+        <button id="exportBtn">Export & Wipe</button>
     </div>
     
     <script src="popup.js"></script>

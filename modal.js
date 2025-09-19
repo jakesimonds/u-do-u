@@ -3,15 +3,25 @@ function saveAndClose() {
     const userText = input.value.trim();
     
     if (userText) {
-        // Save to Chrome storage
-        chrome.storage.local.set({
-            'currentActivity': userText
-        }, () => {
-            // Close the modal window
-            window.close();
+        const session = {
+            sessionId: `session_${Date.now()}`,
+            activity: userText,
+            startTime: new Date().toISOString(),
+            urls: []
+        };
+        
+        // Add to sessions array in chrome storage
+        chrome.storage.local.get(['sessions'], (result) => {
+            const sessions = result.sessions || [];
+            sessions.push(session);
+            chrome.storage.local.set({ 
+                'sessions': sessions,
+                'currentActivity': userText 
+            }, () => {
+                window.close();
+            });
         });
     } else {
-        // If empty, just close
         window.close();
     }
 }
